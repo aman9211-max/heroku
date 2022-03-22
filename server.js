@@ -1,27 +1,28 @@
-const express = require('express');
+const express = require('express')
+
+const { db, Tasks } = require('./db')
+
 const app = express();
-const {db, Tasks} = require('./db');
-const PORT = process.env.PORT || 4444;
 
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
 
-app.use(express.json());
-app.use(express.urlencoded({extended : true}));
+const PORT = process.env.PORT || 4444
+
 app.get('/', (req, res) => {
-    res.send('Hello world');
+  res.send('Hello World')
 })
 
 app.get('/tasks', async (req, res) => {
-    res.send(await Tasks.findAll())
+  res.send(await Tasks.findAll())
 })
 
 app.post('/tasks', async (req, res) => {
-    res.send(await Tasks.create(req.body));
+  res.send(await Tasks.create(req.body))
 })
 
-db.sync() 
-.then(() => {
+db.sync({alter: true}).then(() => {
+  app.listen(PORT, (req, res) => {
     console.log(`started on http://localhost:${PORT}`)
+  })
 })
-
-
-
