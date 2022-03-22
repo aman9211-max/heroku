@@ -1,0 +1,24 @@
+{
+  "name": "project_deployment_heroku",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.3",
+    "sequelize": "^6.17.0",
+    "sqlite3": "^5.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aman9211-max/Heroku_deploy.git"
+  },
+  "bugs": {
+    "url": "https://github.com/aman9211-max/Heroku_deploy/issues"
+  },
+  "homepage": "https://github.com/aman9211-max/Heroku_deploy#readme",
+  "description": ""
+}
